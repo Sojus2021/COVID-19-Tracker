@@ -1,6 +1,8 @@
 import './App.css';
+import styled from 'styled-components';
 import Global from './Components/Global/Global.js';
-// import Search from './Components/Search/Search.js';
+import Search from './Components/Search/Search.js';
+import Country from './Components/Country/Country.js';
 import { useState, useEffect } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import About from './Components/About/About';
@@ -9,8 +11,6 @@ function App() {
 	const [countries, setCountries] = useState();
 
 	const url = `https://api.covid19api.com/summary`;
-
-	// let list = ({ countries, setCountries }) => {
 
 	useEffect(() => {
 		fetch(url)
@@ -24,14 +24,16 @@ function App() {
 	return (
 		<main>
 			<nav>
-				<Link to='/About'>
-					<p>About</p>
-				</Link>
+				<button>
+					<Link to='/About'>About</Link>
+				</button>
 				<button>Search</button>
 				<button>Global</button>
 				<button>Recovered</button>
 			</nav>
-			<h1>COVID-19 Tracker</h1>
+			<div>
+				<h1>COVID-19 Tracker</h1>
+			</div>
 			{/* <form>
 				<label>
 					Type any country:
@@ -42,10 +44,10 @@ function App() {
 
 			<div className='App'>
 				<Route path='/' render={() => <Global countries={countries} />} />
-				{/* <Route path='/' render={() => <Search countries={countries} />} /> */}
-				<Route path='/' component={About} />
+				<Route path='/c' render={() => <Search countries={countries} />} />
+				<Route path='/d' render={() => <Country countries={countries} />} /> 
+				<Route exact path='/About' component={About} />
 			</div>
-			{/* return <div>{list}</div>; */}
 		</main>
 	);
 }

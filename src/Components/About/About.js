@@ -1,4 +1,4 @@
-const About = () => {
+function About(props) {
 	return (
 		<div>
 			<p>
@@ -8,6 +8,8 @@ const About = () => {
 				track how Coronavirus has affected the world.
 			</p>
 		</div>
+
 	);
+	
 };
 export default About;
