@@ -1,35 +1,38 @@
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './Search.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 
-function Search({ countries }) {
+function Search(props) {
+	const [country, setCountry] = useState(null);
 	const { CountryCode } = useParams();
-	if (countries) {
-		console.log(countries);
-		// let countryArr = [...countries];
-		let country = countries.filter(
-			(item) => item.CountryCode === CountryCode
-            );
-            let count = country[0];
-	}
-	if (!countries) {
-		return <p>Loading...</p>;
+
+	useEffect(() => {
+		const url = `https://api.covid19api.com/summary`;
+		// let url2 = `${url}${CountryCode}`;
+
+		fetch(url)
+        .then((res) => res.json())
+        .then((json) => {
+                console.log(json);
+				let specCountry = json.Countries.find(country => country.CountryCode === CountryCode);
+				setCountry(specCountry);
+			})
+			.catch(console.error);
+	}, []);
+	if (!country) {
+		return <p>Loading country data...</p>;
+	} else {
 	}
 	return (
-		<div className='container'>
-			<div className='details'>
-				{/* <h3>
-					{count.Country}
-				</h3>
-				<ul>
-					<li>New Confirmed Cases: {count.NewConfirmed}</li>
-					<li>Total Confirmed Cases: {count.TotalConfirmed}</li>
-					<li>Total Deaths: {count.TotalDeaths}</li>
-					<li>Total Recovered: {count.TotalRecovered}</li>
-				</ul> */}
-			</div>
+		<div className='container' key={CountryCode}>
+			<ul>
+				<p>{country.Country}</p>
+				<li>New Confirmed Cases: {country.NewConfirmed}</li>
+				<li>Total Confirmed Cases: {country.TotalConfirmed}</li>
+				<li>Total Deaths: {country.TotalDeaths}</li>
+				<li>New Deaths: {country.NewDeaths}</li>
+			</ul>
 		</div>
 	);
 }
-
 export default Search;
