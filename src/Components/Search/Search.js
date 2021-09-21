@@ -11,10 +11,12 @@ function Search(props) {
 		// let url2 = `${url}${CountryCode}`;
 
 		fetch(url)
-        .then((res) => res.json())
-        .then((json) => {
-                console.log(json);
-				let specCountry = json.Countries.find(country => country.CountryCode === CountryCode);
+			.then((res) => res.json())
+			.then((json) => {
+				console.log(json);
+				let specCountry = json.Countries.find(
+					(country) => country.CountryCode === CountryCode
+				);
 				setCountry(specCountry);
 			})
 			.catch(console.error);
