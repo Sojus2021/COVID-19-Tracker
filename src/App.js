@@ -2,14 +2,12 @@ import './App.css';
 import styled from 'styled-components';
 import Global from './Components/Global/Global.js';
 import Search from './Components/Search/Search.js';
-// import Type from './Components/Type/Type.js';
-// import Country from './Components/Country/Country.js';
 import { useState, useEffect } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import About from './Components/About/About';
 
 function App() {
-	const [countries, setCountries] = useState();
+	const [countries, setCountries] = useState([]);
 
 	const url = `https://api.covid19api.com/summary`;
 
@@ -24,6 +22,7 @@ function App() {
 	}, []);
 	return (
 		<main>
+
 			<nav>
 				<button>
 					<Link to='/About'>About</Link>
@@ -31,18 +30,12 @@ function App() {
 				<button>
 					<Link to='/'>Home</Link>
 				</button>
-				{/* <button>Global</button> */}
-				{/* <button>Recovered</button> */}
 			</nav>
+
 			<div>
-				<h1>^COVID-19 Tracker</h1>
+				<h1>^TraCOVID-19_</h1>
+                <p>Tracking CoronaVirus Across The Globe </p>
 			</div>
-			{/* <form>
-				<label>
-					Type any country:
-					<input type='text' placeholder='Country' value='' />
-				</label>
-			</form> */}
 
 			<div className='App'>
 				<Route 
@@ -51,13 +44,7 @@ function App() {
 				path='/country/:CountryCode'
 				exact render={() => <Search countries={countries} />}
 				/>
-                {/* <Route 
-                path='/country/:CountryCode'
-                exact render={() => <Type countries={countries} />} /> */}
-				{/* <Route
-				path='/Country/:CountryCode'
-				render={() => <Country countries={countries} />} /> */}
-				{/* <Route exact path='/About' component={About} /> */}
+               
 				<Route 
                 path='/About'><About /></Route>
 			</div>

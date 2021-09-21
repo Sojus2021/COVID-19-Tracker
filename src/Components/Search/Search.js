@@ -8,7 +8,6 @@ function Search(props) {
 
 	useEffect(() => {
 		const url = `https://api.covid19api.com/summary`;
-		// let url2 = `${url}${CountryCode}`;
 
 		fetch(url)
 			.then((res) => res.json())
