@@ -28,7 +28,6 @@ function Search(props) {
 	return (
 		<div className='container2' id='individual' key={CountryCode}>
 			<div className='card'>
-			{/* <img src="hand-disinfection-4954840_1920.jpg" alt="mask, sanitizer" /> */}
 			<ul>
 				<div className='card-title'>
 				<p>{country.Country}</p>
@@ -40,7 +39,7 @@ function Search(props) {
 				<li>Total Deaths: {country.TotalDeaths}</li>
 				<li>New Deaths: {country.NewDeaths}</li>
 				</div>
-
+				
 			</ul>
 			</div>
 		</div>

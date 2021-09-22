@@ -14,7 +14,7 @@ export const PrimaryButton = styled(Button)`
 	border: bold;
 	color: white;
 
-    &:hover {
-        background-color: yellow;
-    }
+	&:hover {
+		background-color: lightgreen;
+	}
 `;
