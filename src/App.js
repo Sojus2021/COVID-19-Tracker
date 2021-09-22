@@ -23,12 +23,12 @@ function App() {
 	return (
 		<main>
 			<nav>
-				<Button>
-					<Link to='/About'>About</Link>
-				</Button>
 				<PrimaryButton>
 					<Link to='/'>Home</Link>
 				</PrimaryButton>
+				<Button>
+					<Link to='/About'>About</Link>
+				</Button>
 			</nav>
 
 			<div>
