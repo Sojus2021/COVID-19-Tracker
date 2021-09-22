@@ -1,10 +1,10 @@
 import './App.css';
-import styled from 'styled-components';
+import About from './Components/About/About';
 import Global from './Components/Global/Global.js';
 import Search from './Components/Search/Search.js';
 import { useState, useEffect } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
-import About from './Components/About/About';
+import { Route, Link } from 'react-router-dom';
+import {Button, PrimaryButton} from './Components/Buttons';
 
 function App() {
 	const [countries, setCountries] = useState([]);
@@ -22,31 +22,31 @@ function App() {
 	}, []);
 	return (
 		<main>
-
 			<nav>
-				<button>
+				<Button>
 					<Link to='/About'>About</Link>
-				</button>
-				<button>
+				</Button>
+				<PrimaryButton>
 					<Link to='/'>Home</Link>
-				</button>
+				</PrimaryButton>
 			</nav>
 
 			<div>
 				<h1>^TraCOVID-19_</h1>
-                <p>Tracking CoronaVirus Across The Globe </p>
+				<p>Tracking CoronaVirus Across The Globe </p>
 			</div>
 
 			<div className='App'>
-				<Route 
-                path='/' exact render={() => <Global countries={countries} />} />
+				<Route path='/' exact render={() => <Global countries={countries} />} />
 				<Route
-				path='/country/:CountryCode'
-				exact render={() => <Search countries={countries} />}
+					path='/country/:CountryCode'
+					exact
+					render={() => <Search countries={countries} />}
 				/>
-               
-				<Route 
-                path='/About'><About /></Route>
+
+				<Route path='/About'>
+					<About />
+				</Route>
 			</div>
 		</main>
 	);

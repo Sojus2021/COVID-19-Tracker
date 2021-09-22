@@ -25,7 +25,7 @@ function Global({ countries }) {
 		<section className='container'>
 			<input
 				type='text'
-				placeholder='Type a Country'
+				placeholder='Type country name'
 				onChange={(e) => setSearch(e.target.value)}
 			/>
 
