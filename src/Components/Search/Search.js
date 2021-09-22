@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import './Search.css';
 
 function Search(props) {
 	const [country, setCountry] = useState(null);
@@ -25,14 +26,23 @@ function Search(props) {
 	} else {
 	}
 	return (
-		<div className='container' key={CountryCode}>
+		<div className='container2' id='individual' key={CountryCode}>
+			<div className='card'>
+			{/* <img src="hand-disinfection-4954840_1920.jpg" alt="mask, sanitizer" /> */}
 			<ul>
+				<div className='card-title'>
 				<p>{country.Country}</p>
+				</div>
+
+				<div className='list'>
 				<li>New Confirmed Cases: {country.NewConfirmed}</li>
 				<li>Total Confirmed Cases: {country.TotalConfirmed}</li>
 				<li>Total Deaths: {country.TotalDeaths}</li>
 				<li>New Deaths: {country.NewDeaths}</li>
+				</div>
+
 			</ul>
+			</div>
 		</div>
 	);
 }

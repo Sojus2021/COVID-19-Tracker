@@ -1,0 +1,40 @@
+.container2 {
+	background-color: aqua;
+    display: grid;
+    padding: 0.25rem 0.25rem 0.25rem 0rem;
+	/* border: 0px 0px 0px 0px darkblue; */
+	text-decoration: darkblue;
+    justify-content: center;
+    margin: 0; 
+}
+ul {
+    list-style-type: none;
+	justify-content: center;
+}
+.card {
+    border: 1px 1px 1px 1px solid lightgray;
+	/* border-radius: 1rem; */
+	display: grid;
+    margin: 0;
+	grid-template-rows: 2fr;
+	/* grid-template-columns: 0fr 0fr 0fr 0fr; */
+}
+.card-title p {
+	background-color: black;
+	color: white;
+	/* border-radius: 0 0 1rem 1rem; */
+	margin: 0;
+	padding: 0.25rem;
+	text-align: center;
+}
+.list {
+    padding-top: 0.5rem;
+}
+
+#individual {
+	background-color: lightgrey;
+	color: darkblue;
+    padding-top: 0rem;
+    padding-left: 0rem;
+	/* background-image: url('hand-disinfection-4954840_1920.jpg'); */
+}
